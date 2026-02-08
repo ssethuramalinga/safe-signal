@@ -5,6 +5,8 @@ import CoverScreen from "../screens/CoverScreen";
 import TabsNavigator from "./TabsNavigator";
 import FakeCallScreen from "../screens/FakeCallScreen";
 
+
+
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export default function RootNavigator() {

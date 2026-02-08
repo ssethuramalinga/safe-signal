@@ -1,3 +1,4 @@
+// src/navigation/TabsNavigator.tsx
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Ionicons } from "@expo/vector-icons";
@@ -25,19 +26,28 @@ export default function TabsNavigator() {
           backgroundColor: Colors.card,
         },
         tabBarIcon: ({ color, size }) => {
-          const icon =
-            route.name === "Home"
-              ? "home"
-              : route.name === "Map"
-              ? "location"
-              : "settings";
-          return <Ionicons name={icon as any} size={size} color={color} />;
+          let iconName: keyof typeof Ionicons.glyphMap;
+
+          switch (route.name) {
+            case "Home":
+              iconName = "home";
+              break;
+            case "Map":
+              iconName = "location";
+              break;
+            case "Settings":
+            default:
+              iconName = "settings";
+              break;
+          }
+
+          return <Ionicons name={iconName} size={size} color={color} />;
         },
       })}
     >
-      <Tab.Screen name="Settings" component={SettingsScreen} />
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="Map" component={MapScreen} />
+      <Tab.Screen name="Settings" component={SettingsScreen} />
     </Tab.Navigator>
   );
 }
