@@ -5,7 +5,9 @@ import { Ionicons } from "@expo/vector-icons";
 import type { TabsParamList } from "../types/navigation";
 import HomeScreen from "../screens/HomeScreen";
 import MapScreen from "../features/map/screens/MapScreen";
-import SettingsScreen from "../features/settings/screens/SettingsScreen";
+//import SettingsScreen from "../features/settings/screens/SettingsScreen";
+// In your AppNavigator file
+import { SettingsScreen } from '../features/settings/screens/SettingsScreen';
 import { Colors } from "../theme/colors";
 
 const Tab = createBottomTabNavigator<TabsParamList>();
